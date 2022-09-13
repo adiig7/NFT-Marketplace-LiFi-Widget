@@ -54,7 +54,6 @@ return (
             <div className="md:text-xl font-bold text-white">
                 Explore some mind blowing NFTs 🤯
             </div>
-            {/* <button className="md:text-xl font-bold text-white">Swap</button> */}
             <LiFiWidgetDrawer
                 config={{
                     containerStyle: {
@@ -67,7 +66,6 @@ return (
                     },
                 }}
             />
-           
             <div className="flex mt-5 justify-between flex-wrap max-w-screen-xl text-center">
                 {data.map((value, index) => {
                     return <NFTTile data={value} key={index}></NFTTile>;
