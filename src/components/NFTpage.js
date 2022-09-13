@@ -3,8 +3,8 @@ import axie from "../tile.jpeg";
 import { useLocation, useParams } from 'react-router-dom';
 import MarketplaceJSON from "../Marketplace.json";
 import axios from "axios";
-import { useState,useEffect } from "react";
-import { LiFiWidgetDrawer } from "@lifi/widget";
+import { useState,useEffect, useRef } from "react";
+import LiFiWidget from "./LiFiWidget";
 
 export default function NFTPage (props) {
 
@@ -13,6 +13,7 @@ const [dataFetched, updateDataFetched] = useState(false);
 const [message, updateMessage] = useState("");
     const [currAddress, updateCurrAddress] = useState("0x");
     const [drawerOpen, setDrawerOpen] = useState(false);
+    const drawerRef = useRef();
 
 
     //  function changeDrawerMode() {
@@ -79,9 +80,6 @@ async function buyNFT(tokenId) {
     if(!dataFetched)
         getNFTData(tokenId);
     
-    // useEffect(() => {
-    //     // setDrawerOpen(!drawerOpen)
-    // }, [drawerOpen]);
     console.log(drawerOpen);
 
     return(
@@ -111,22 +109,13 @@ async function buyNFT(tokenId) {
                             : 
                                 <button className="enableEthereumButton bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm" onClick={() => buyNFT(tokenId)}>Buy this NFT</button>
                         }
-                                <button className="enableEthereumButton bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm" onClick={() => setDrawerOpen((drawer) => !drawer)}> NFT</button>
+                    <button className="enableEthereumButton bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm" style={{"marginTop": "15px"}} onClick={() => drawerRef.current?.toggleDrawer()}> Swap Tokens</button>
 
                                
                         <div className="text-green text-center mt-3">{message}</div>
-                            <LiFiWidgetDrawer
-                                                        config={{
-                                                            containerStyle: {
-                                                                width: 392,
-                                                                height: 640,
-                                                                border: `1px solid rgb(234, 234, 234)`,
-                                                                borderRadius: "16px",
-                                                                display: "flex",
-                                                                maxWidth: 392,
-                                                            },
-                                                        }} open={drawerOpen} 
-                            />
+                           <LiFiWidget
+                ref={drawerRef}
+            />
                     </div>
                 </div>
             </div>

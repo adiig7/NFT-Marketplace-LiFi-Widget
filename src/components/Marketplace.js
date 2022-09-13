@@ -2,7 +2,8 @@ import Navbar from "./Navbar";
 import NFTTile from "./NFTTile";
 import MarketplaceJSON from "../Marketplace.json";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useRef, createRef } from "react";
+import { LiFiWidgetDrawer } from "@lifi/widget";
 import LiFiWidget from "./LiFiWidget";
 
 export default function Marketplace() {
@@ -10,6 +11,7 @@ const sampleData = [
 ];
     const [data, updateData] = useState(sampleData);
     const [dataFetched, updateFetched] = useState(false);
+    const drawerRef = createRef();
 
 async function getAllNFTs() {
     const ethers = require("ethers");
@@ -51,10 +53,16 @@ return (
     <div>
         <Navbar></Navbar>
         <div className="flex flex-col place-items-center mt-20">
+            <button className="enableEthereumButton bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm" style={{"marginBottom":"40px"}} onClick={() => drawerRef.current?.toggleDrawer()}>Swap Tokens</button>
+
+           <LiFiWidget
+                ref={drawerRef}
+            />
+
             <div className="md:text-xl font-bold text-white">
                 Explore some mind blowing NFTs 🤯
             </div>
-            <LiFiWidget />
+            {/* <LiFiWidget /> */}
             <div className="flex mt-5 justify-between flex-wrap max-w-screen-xl text-center">
                 {data.map((value, index) => {
                     return <NFTTile data={value} key={index}></NFTTile>;
