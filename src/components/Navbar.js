@@ -13,6 +13,7 @@ function Navbar() {
 
   const [connected, toggleConnect] = useState(false);
   const location = useLocation();
+  const [drawerOpen, setDrawerOpen] = useState(false);
   const [currAddress, updateAddress] = useState('0x');
 
   async function getAddress() {
@@ -30,6 +31,10 @@ function Navbar() {
     ethereumButton.classList.remove("bg-blue-500");
     ethereumButton.classList.add("hover:bg-green-70");
     ethereumButton.classList.add("bg-green-500");
+  }
+
+  function changeDrawerMode() {
+    setDrawerOpen(drawerOpen = !drawerOpen);
   }
 
   async function connectWebsite() {
@@ -97,6 +102,7 @@ function Navbar() {
                 </li>
               }
               <li>
+                <button className="enableEthereumButton bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm" style={{ "marginRight": "20px" }} onClick={ changeDrawerMode}>Get funds to Arbitrum</button>
                 <button className="enableEthereumButton bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm" onClick={connectWebsite}>{connected ? "Connected" : "Connect Wallet"}</button>
               </li>
             </ul>
