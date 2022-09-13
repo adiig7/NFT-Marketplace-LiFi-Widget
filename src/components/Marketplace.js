@@ -54,7 +54,7 @@ return (
             <div className="md:text-xl font-bold text-white">
                 Explore some mind blowing NFTs 🤯
             </div>
-            <button className="md:text-xl font-bold text-white">Swap</button>
+            {/* <button className="md:text-xl font-bold text-white">Swap</button> */}
             <LiFiWidgetDrawer
                 config={{
                     containerStyle: {
