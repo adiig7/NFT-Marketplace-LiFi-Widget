@@ -11,14 +11,16 @@ import {
 import Marketplace from './components/Marketplace';
 import Profile from './components/Profile';
 import NFTPage from './components/NFTpage';
+import LiFiWidget from './components/LiFiWidget';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Marketplace />}/>
-        <Route path="/nftPage/:tokenId" element={<NFTPage />}/>        
+        <Route path="/" element={<Marketplace />} />
+        <Route path="/nftPage/:tokenId" element={<NFTPage />} /> 
+        <Route path="/swap/*" element={<LiFiWidget />} />
         <Route path="/profile" element={<Profile />}/> 
       </Routes>
     </BrowserRouter>

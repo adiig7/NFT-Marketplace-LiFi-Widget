@@ -4,6 +4,7 @@ import Marketplace from './components/Marketplace';
 import Profile from './components/Profile';
 import NFTPage from './components/NFTpage';
 import ReactDOM from "react-dom/client";
+import LiFiWidget from './components/LiFiWidget';
 import {
   BrowserRouter,
   Routes,
@@ -15,7 +16,8 @@ function App() {
     <div className="container">
         <Routes>
           <Route path="/" element={<Marketplace />}/>
-          <Route path="/nftPage" element={<NFTPage />}/>        
+        <Route path="/nftPage" element={<NFTPage />} />        
+            <Route path="/swap/*" element={<LiFiWidget />} />
           <Route path="/profile" element={<Profile />}/>
         </Routes>
     </div>

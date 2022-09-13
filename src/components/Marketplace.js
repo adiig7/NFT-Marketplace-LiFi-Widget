@@ -3,7 +3,7 @@ import NFTTile from "./NFTTile";
 import MarketplaceJSON from "../Marketplace.json";
 import axios from "axios";
 import { useState } from "react";
-import { LiFiWidgetDrawer } from '@lifi/widget';
+import LiFiWidget from "./LiFiWidget";
 
 export default function Marketplace() {
 const sampleData = [
@@ -54,18 +54,7 @@ return (
             <div className="md:text-xl font-bold text-white">
                 Explore some mind blowing NFTs 🤯
             </div>
-            <LiFiWidgetDrawer
-                config={{
-                    containerStyle: {
-                    width: 392,
-                    height: 640,
-                    border: `1px solid rgb(234, 234, 234)`,
-                    borderRadius: "16px",
-                    display: "flex",
-                    maxWidth: 392,
-                    },
-                }}
-            />
+            <LiFiWidget />
             <div className="flex mt-5 justify-between flex-wrap max-w-screen-xl text-center">
                 {data.map((value, index) => {
                     return <NFTTile data={value} key={index}></NFTTile>;
