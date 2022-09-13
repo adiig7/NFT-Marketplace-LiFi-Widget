@@ -54,15 +54,10 @@ return (
         <Navbar></Navbar>
         <div className="flex flex-col place-items-center mt-20">
             <button className="enableEthereumButton bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm" style={{"marginBottom":"40px"}} onClick={() => drawerRef.current?.toggleDrawer()}>Swap Tokens</button>
-
-           <LiFiWidget
-                ref={drawerRef}
-            />
-
+           <LiFiWidget  ref={drawerRef} />
             <div className="md:text-xl font-bold text-white">
                 Explore some mind blowing NFTs 🤯
             </div>
-            {/* <LiFiWidget /> */}
             <div className="flex mt-5 justify-between flex-wrap max-w-screen-xl text-center">
                 {data.map((value, index) => {
                     return <NFTTile data={value} key={index}></NFTTile>;

@@ -8,17 +8,12 @@ import LiFiWidget from "./LiFiWidget";
 
 export default function NFTPage (props) {
 
-const [data, updateData] = useState({});
-const [dataFetched, updateDataFetched] = useState(false);
-const [message, updateMessage] = useState("");
+    const [data, updateData] = useState({});
+    const [dataFetched, updateDataFetched] = useState(false);
+    const [message, updateMessage] = useState("");
     const [currAddress, updateCurrAddress] = useState("0x");
     const [drawerOpen, setDrawerOpen] = useState(false);
     const drawerRef = useRef();
-
-
-    //  function changeDrawerMode() {
-    //      setDrawerOpen(!drawerOpen);
-    //  }
 
 async function getNFTData(tokenId) {
     const ethers = require("ethers");
@@ -110,8 +105,6 @@ async function buyNFT(tokenId) {
                                 <button className="enableEthereumButton bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm" onClick={() => buyNFT(tokenId)}>Buy this NFT</button>
                         }
                     <button className="enableEthereumButton bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm" style={{"marginTop": "15px"}} onClick={() => drawerRef.current?.toggleDrawer()}> Swap Tokens</button>
-
-                               
                         <div className="text-green text-center mt-3">{message}</div>
                            <LiFiWidget
                 ref={drawerRef}
