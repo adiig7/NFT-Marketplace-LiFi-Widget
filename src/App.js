@@ -15,8 +15,8 @@ function App() {
   return (
     <div className="container">
         <Routes>
-          <Route path="/" element={<Marketplace />}/>
-        <Route path="/nftPage" element={<NFTPage />} />        
+          <Route path="/*" element={<Marketplace />}/>
+          <Route path="/nftPage/" element={<NFTPage />} />        
             <Route path="/swap/*" element={<LiFiWidget />} />
           <Route path="/profile" element={<Profile />}/>
         </Routes>

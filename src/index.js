@@ -18,7 +18,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Marketplace />} />
+        <Route path="/*" element={<Marketplace />} />
         <Route path="/nftPage/:tokenId" element={<NFTPage />} /> 
         <Route path="/swap/*" element={<LiFiWidget />} />
         <Route path="/profile" element={<Profile />}/> 
