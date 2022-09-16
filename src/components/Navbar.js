@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
+import lifi from "../lifilogo.png";
 
 function Navbar() {
 
@@ -76,6 +77,7 @@ function Navbar() {
         <ul className='flex items-end justify-between py-3 bg-transparent text-white pr-5'>
           <li className='flex items-end ml-5 pb-2'>
             <Link to="/">
+            <img src={lifi} alt="" width={40} height={40} className="inline-block -mt-2"/>
               <div className='inline-block font-bold text-xl ml-2'>
                 LI.FI Marketplace
               </div>
