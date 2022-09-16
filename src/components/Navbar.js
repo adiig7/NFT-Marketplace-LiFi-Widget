@@ -94,7 +94,7 @@ function Navbar() {
                   <Link to="/">Marketplace</Link>
                 </li>
               }
-              {location.pathname === "/sellNFT" ? 
+              {/* {location.pathname === "/sellNFT" ? 
               <li className='border-b-2 hover:pb-0 p-2'>
                 <Link to="/sellNFT">List My NFT</Link>
               </li>
@@ -102,7 +102,7 @@ function Navbar() {
               <li className='hover:border-b-2 hover:pb-0 p-2'>
                 <Link to="/sellNFT">List My NFT</Link>
               </li>              
-              }      
+              }       */}
               {location.pathname === "/profile" ?
                 <li className='border-b-2 hover:pb-0 p-2'>
                   <Link to="/profile">Profile</Link>
