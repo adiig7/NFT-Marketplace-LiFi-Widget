@@ -5,6 +5,7 @@ import MarketplaceJSON from "../Marketplace.json";
 import axios from "axios";
 import { useState,useEffect, useRef } from "react";
 import LiFiWidget from "./LiFiWidget";
+import { LiFiWidgetDrawer } from "@lifi/widget";
 
 export default function NFTPage (props) {
 
@@ -104,10 +105,24 @@ async function buyNFT(tokenId) {
                             : 
                                 <button className="enableEthereumButton bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm" onClick={() => buyNFT(tokenId)}>Buy this NFT</button>
                         }
-                    <button className="enableEthereumButton bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm" style={{"marginTop": "15px"}} onClick={() => drawerRef.current?.toggleDrawer()}> Swap Tokens</button>
+                    <button className="enableEthereumButton bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm" style={{"marginTop": "15px", "marginLeft":"15px"}} onClick={() => drawerRef.current?.toggleDrawer()}> Swap Tokens</button>
                         <div className="text-green text-center mt-3">{message}</div>
-                           <LiFiWidget
-                ref={drawerRef}
+                           {/* <LiFiWidget
+                ref={drawerRef} */}
+                        <LiFiWidgetDrawer
+        config={{
+            containerStyle: {
+                width: 392,
+                height: 640,
+                border: `1px solid rgb(234, 234, 234)`,
+                borderRadius: "16px",
+                display: "flex",
+                maxWidth: 392,
+            },
+            toChain: 42161,
+            toToken: '0x539bdE0d7Dbd336b79148AA742883198BBF60342',
+        }}
+        ref={drawerRef}
             />
                     </div>
                 </div>

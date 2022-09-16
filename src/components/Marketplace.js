@@ -3,15 +3,14 @@ import NFTTile from "./NFTTile";
 import MarketplaceJSON from "../Marketplace.json";
 import axios from "axios";
 import { useState, useRef, createRef } from "react";
-import { LiFiWidgetDrawer } from "@lifi/widget";
 import LiFiWidget from "./LiFiWidget";
 
 export default function Marketplace() {
-const sampleData = [
-];
+    const sampleData = [];
+    
     const [data, updateData] = useState(sampleData);
     const [dataFetched, updateFetched] = useState(false);
-    const drawerRef = createRef();
+ const drawerRef = createRef();
 
 async function getAllNFTs() {
     const ethers = require("ethers");
@@ -44,6 +43,7 @@ async function getAllNFTs() {
 
     updateFetched(true);
     updateData(items);
+
 }
 
 if(!dataFetched)
@@ -63,7 +63,7 @@ return (
                     return <NFTTile data={value} key={index}></NFTTile>;
                 })}
             </div>
-        </div>            
+        </div>
     </div>
 );
 

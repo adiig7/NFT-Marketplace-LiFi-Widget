@@ -12,8 +12,6 @@ const LiFiWidget = React.forwardRef((props, ref) => (
                 borderRadius: "16px",
                 display: "flex",
                 maxWidth: 392,
-                toChain: 10,
-                toToken: '0x7f5c764cbc14f9669b88837ca1490cca17c31607',
             },
         }}
         ref={ref}
